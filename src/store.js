@@ -18,7 +18,7 @@ import {
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['selectedMovie']
+  blacklist: ['navigation']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducer);

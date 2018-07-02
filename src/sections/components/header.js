@@ -10,7 +10,7 @@ import {
 function Header(props){
 	return(
 		<View>
-			<SafeAreaView>
+			<SafeAreaView style={styles.statusBar}>
 				<View style={styles.container}>
 					<Image 
 						source={require('../../../assets/logo.png')}
@@ -31,9 +31,12 @@ const styles=StyleSheet.create({
 		height: 26,
 		resizeMode: 'contain'
 	},
-	container:{
-		padding: 10,
-		flexDirection: 'row'
+  statusBar:{
+    backgroundColor: 'white'
+  },
+  container:{
+    padding: 10,
+    flexDirection: 'row',
 		//paddingVerical | paddingHorizontal //
 	},
 	right:{
