@@ -14,6 +14,7 @@ class Home extends Component{
   static navigationOptions = () => {
     return {
       header: Header
+      // title: 'Inicio'
     }
   };
   async componentDidMount(){
