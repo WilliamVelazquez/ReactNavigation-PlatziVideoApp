@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
   Image,
+  StatusBar
 } from 'react-native';
 
 import Icon from '../../sections/components/icon';
@@ -15,6 +16,16 @@ class About extends Component {
       tabBarIcon: <Icon icon="🤓"/>
     }
   };
+  componentDidMount(){
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      //console.log('focus');
+      StatusBar.setBarStyle('light-content');//setBarStyle personalize bar in iOS //dark-content is available too
+      StatusBar.setBackgroundColor('#022c43');//Only Works for Android
+    });
+  }
+  componentWillUnmount(){
+    this.focus.remove();
+  }
   render() {
     return (
       <View style={styles.container}>

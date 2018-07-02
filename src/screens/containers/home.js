@@ -1,5 +1,9 @@
 import React, {Component, Fragment} from 'react';
 
+import {
+  StatusBar
+} from 'react-native';
+
 import {connect} from 'react-redux';
 
 import Header from '../../sections/components/header';
@@ -18,6 +22,12 @@ class Home extends Component{
     }
   };
   async componentDidMount(){
+    
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    });
+
     const categoryList =  await API.getMovies();
     this.props.dispatch({
       type: 'SET_CATEGORY_LIST',
@@ -33,6 +43,10 @@ class Home extends Component{
         suggestionList
       }
     })
+  }
+
+  componentWillUnmount(){
+    this.focus.remove();
   }
 
   render(){

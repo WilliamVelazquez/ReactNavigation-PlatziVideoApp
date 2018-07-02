@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  StatusBar,
+  StatusBar
 } from 'react-native';
 import Search from '../../sections/containers/search';
 
@@ -16,13 +16,24 @@ class Lucky extends Component {
       tabBarIcon: <Icon icon="⭐"/>
     }
   };
+
+  componentDidMount(){
+    this.focus = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('white');
+    });
+  }
+  componentWillUnmount(){
+    this.focus.remove();
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.iconImage}>🍀</Text>
         <Search />
       </View>
-    )
+    );
   }
 }
 
@@ -38,6 +49,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 15
   }
-})
+});
 
-export default Lucky
+export default Lucky;
