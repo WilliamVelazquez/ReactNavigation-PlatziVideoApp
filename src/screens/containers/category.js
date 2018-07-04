@@ -39,12 +39,14 @@ class Category extends Component{
         {...item}
         onPress={()=>{this.viewMovie(item)}}
       />
-    )
-  };
+    );
+  }
+
   render(){
     return(
       <Layout
-        title={`${this.props.navigation.getParam('genre','Categoría')}`}>
+        title={`${this.props.navigation.getParam('genre','Categoría')}`}
+      >
         <FlatList 
           keyExtractor={this.keyExtractor}
           data={this.props.list}

@@ -31,12 +31,15 @@ class CategoryList extends Component{
     )
   }
   renderItem = ({item}) => {
+    //console.log("List-->",item.genres);
+    //console.log("-------",item);
+    //console.log("List-->",item.background_image);
     return(
       <Category 
         {...item}
         onPress={() => {this.viewCategory(item)}}
       />
-    )
+    );
   };
   render(){
     return(

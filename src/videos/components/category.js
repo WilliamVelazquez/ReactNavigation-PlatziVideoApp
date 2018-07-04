@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 function Category(props){
+  //console.log("***********",props.genres);
   return(
     <TouchableOpacity
       onPress={props.onPress}
@@ -18,7 +19,7 @@ function Category(props){
           uri: props.background_image
         }}
       >
-        <Text style={styles.genre}>{props.genres[0]}</Text>
+        <Text style={styles.genre}>{props.genres?props.genres[0]:`Sin Género`}</Text>
       </ImageBackground>
     </TouchableOpacity>
   )
