@@ -19,7 +19,7 @@ const Main = createStackNavigator(
   {
     Home,//Home:Home
     Movie,//Movie:Movie
-    Category
+    // Category
   },
   {
     //initialRouteName: 'Home',
@@ -27,7 +27,10 @@ const Main = createStackNavigator(
       header: Header,
       gesturesEnabled: true
     },
-    mode: 'card',
+    mode: 'modal',
+    cardStyle: {
+      backgroundColor: 'white'
+    }
   }
 );
 
@@ -67,11 +70,31 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
 
+const WithModal = createStackNavigator(
+  {
+    Main: {
+      screen: TabNavigator
+    },
+    Category
+    // Movie//Movie: Movie
+  },
+  {
+    mode: 'card',
+    headerMode: 'none',
+    cardStyle: {
+      backgroundColor: 'white'
+    },
+    navigationOptions: {
+      gesturesEnabled: true
+    }
+  }
+);
+
 const SwitchNavigator = createSwitchNavigator(
   {
     Loading: Loading,
-    App: TabNavigator,
-    Login: Login
+    Login: Login,
+    App: WithModal
   },
   {
     initialRouteName: 'Loading'
