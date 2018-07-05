@@ -15,12 +15,13 @@ import Login from './screens/containers/login';
 import Loading from './screens/containers/loading';
 import Icon from './sections/components/icon';
 import Header from './sections/components/header';
+import DrawerComponent from './sections/components/drawer';
 
 const Main = createStackNavigator(
   {
     Home,//Home:Home
     Movie,//Movie:Movie
-    // Category
+    Category
   },
   {
     //initialRouteName: 'Home',
@@ -75,8 +76,8 @@ const WithModal = createStackNavigator(
   {
     Main: {
       screen: TabNavigator
-    },
-    Category
+    }
+    // Category
     // Movie//Movie: Movie
   },
   {
@@ -110,6 +111,7 @@ const DrawerNavigator = createDrawerNavigator(
   {
     drawerWidth: 200,
     drawerBackgroundColor: '#f6f6f6',
+    contentComponent: DrawerComponent,
     contentOptions: {
       activeBackgroundColor: '#7ABA2F',
       activeTintColor: 'white',
