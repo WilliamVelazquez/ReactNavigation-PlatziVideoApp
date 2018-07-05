@@ -13,7 +13,8 @@ class About extends Component {
   static navigationOptions = () => {
     return {
       title: 'Sobre esta App',
-      tabBarIcon: <Icon icon="🤓"/>
+      tabBarIcon: <Icon icon="🤓"/>,
+      drawerIcon: <Icon icon="🤓"/>
     }
   };
   componentDidMount(){

@@ -2,7 +2,8 @@ import React from 'react';
 import {
   createStackNavigator,
   createBottomTabNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  createDrawerNavigator
 } from 'react-navigation';
 import Home from './screens/containers/home';
 import Movie from './screens/containers/movie';
@@ -90,11 +91,49 @@ const WithModal = createStackNavigator(
   }
 );
 
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Main: {
+      screen: WithModal,
+      navigationOptions: {
+        title: 'Inicio',
+        drawerIcon: <Icon icon="🏡"/>,
+      }
+    },
+    Sobre: {
+      screen: About
+    },
+    Suerte: {
+      screen: Lucky
+    }
+  },
+  {
+    drawerWidth: 200,
+    drawerBackgroundColor: '#f6f6f6',
+    contentOptions: {
+      activeBackgroundColor: '#7ABA2F',
+      activeTintColor: 'white',
+      inactiveTintColor: '#828282',
+      inactiveBackgroundColor: 'white',
+      itemStyle: {
+        borderBottomWidth: .5,
+        borderBottomColor: 'rgba(0,0,0,.5)'
+      },
+      labelStyle: {
+        marginHorizontal: 0
+      },
+      iconContainerStyle: {
+        marginHorizontal: 5,
+      }
+    }
+  }
+);
+
 const SwitchNavigator = createSwitchNavigator(
   {
     Loading: Loading,
     Login: Login,
-    App: WithModal
+    App: DrawerNavigator
   },
   {
     initialRouteName: 'Loading'
